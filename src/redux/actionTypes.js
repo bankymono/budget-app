@@ -1,0 +1,2 @@
+export const UPDATE_BUDGET = 'UPDATE_BUDGET'
+export const UPDATE_EXPENSES = 'UPDATE_EXPENSES'

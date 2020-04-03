@@ -4,11 +4,20 @@ import {connect} from 'react-redux'
 
 class Output extends Component {
     render() {
+        const balance = this.props.budget-this.props.totalExpenses
         return (
             <div>
-               result:{this.props.budget}
-               <br/>
-               Total Expenses:{this.props.totalExpenses}
+               <div>BUDGET
+                   <div>{this.props.budget}</div>
+               </div>
+               
+               <div>EXPENSES  
+                   <div>{this.props.totalExpenses}</div>
+               </div>
+
+               <div>BALANCE  
+                   <div>{balance}</div>
+               </div>
                
             </div>
         )

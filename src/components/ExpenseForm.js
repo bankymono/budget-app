@@ -51,7 +51,6 @@ class ExpenseForm extends Component {
                         Add Expense
                     </button>
                     <br/>
-                    
                 </form>
             </div>
         )

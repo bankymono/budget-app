@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BudgetForm from './components/BudgetForm'
 import OutputResult from  './components/Output'
 import ExpenseForm from './components/ExpenseForm'
-import ExpenseList from './components/ExpenseList'
+import ExpenseList from './components/ExpensesList'
 import {Provider} from 'react-redux'
 import store from './redux/store'
 

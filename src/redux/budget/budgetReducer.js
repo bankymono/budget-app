@@ -8,7 +8,7 @@ const budgetReducer = (state=budgetState,action)=>{
         case UPDATE_BUDGET:
             return {
                 ...state,
-                budget:parseFloat(action.payload)
+                budget:parseInt(action.payload)
             }
         default:
             return state

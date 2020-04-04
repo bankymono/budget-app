@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
 class ExpensesList extends Component {
-
-
+    
     render() {
         const expenses = this.props.expenses.map(expense => {
             return(

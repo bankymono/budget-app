@@ -5,23 +5,30 @@ import {connect} from 'react-redux'
 class Output extends Component {
     render() {
         const balance = this.props.budget-this.props.totalExpenses
-        return (
-            <div>
-               <div>BUDGET
-                   <div>{this.props.budget}</div>
-               </div>
-               
-               <div>EXPENSES  
-                   <div>{this.props.totalExpenses}</div>
-               </div>
-
-               <div>BALANCE  
-                   <div>{balance}</div>
-               </div>
-               
-            </div>
-        )
-    }
+        let balanceOutputColorClass = 'colorRed'
+        if(balance < 0)
+            balanceOutputColorClass='colorRed'
+        else if(balance>0) balanceOutputColorClass='colorGreen'
+        else if(balance===0)balanceOutputColorClass='colorBlack'
+            return (
+                <div>
+                   <div>BUDGET
+                       <div>{this.props.budget}</div>
+                   </div>
+                   
+                   <div>EXPENSES  
+                       <div>{this.props.totalExpenses}</div>
+                   </div>
+                   
+                   <div className={balanceOutputColorClass}>BALANCE  
+                       <div>{balance}</div>
+                   </div>
+                   
+                </div>
+            )
+            }
+        
+    
 }
 
 const mapStateToProps = state=>{

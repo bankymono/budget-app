@@ -8,14 +8,35 @@ class ExpenseForm extends Component {
 
         this.state ={
             title:'',
-            amount:0
+            amount:'',
+            expenseFeedback:''
         }
         
     }
 
     submitEventHandler = (event)=>{
         event.preventDefault()
+        const expenseTitle = document.querySelector('#title').value
+        const expenseAmount = document.querySelector('#amount').value
+
+        if (expenseTitle === '' || expenseAmount === '' || expenseAmount < 0){
+            this.setState({
+                expenseFeedback:<p id="expenseFeedback">values cannot be empty or negative</p>
+            })
+            setTimeout(()=>{
+                this.setState({
+                    expenseFeedback:'',
+                    title: '',
+                    amount:''
+                })
+            },4000)
+        }else{
         this.props.updateExpenses(this.state)
+        this.setState({
+            title:'',
+            amount:''
+        })
+        }
     }
 
     expenseInputHandler = (event) =>{
@@ -34,17 +55,18 @@ class ExpenseForm extends Component {
     render() {
         return (
             <div>
+                {this.state.expenseFeedback}
                 <form onSubmit={this.submitEventHandler}>
                     <label>
                         Please Enter Your Expense
                         <br/>
-                        <input type='text' onChange={this.expenseInputHandler} required />
+                        <input id = "title" type='text' onChange={this.expenseInputHandler} value={this.state.title} />
                     </label>
                     <br/>
                     <label>
                         Please Enter Expense Amount
                         <br/>
-                        <input type='text' onChange={this.expenseAmountInputHandler} required />
+                        <input id = "amount" type='number' onChange={this.expenseAmountInputHandler} value={this.state.amount} />
                     </label>
                     <br/>
                     <button>
